@@ -3,6 +3,7 @@
 from util import *
 import itertools
 import sys
+import time
 
 def exhaustive_search(distances, nCities):
     min_d = sys.maxsize
@@ -14,13 +15,19 @@ def exhaustive_search(distances, nCities):
             min_d = d
             path = p
     return path + path[:1], min_d
-        
-        
+
+
 if __name__ == "__main__":
-    
+
     #Parameters
-    num_of_cities = 6  
-    
+    num_of_cities = 10
+
     cities, distances = read_input("european_cities.csv", num_of_cities)
+
+    start_time = time.time()
     path, cost = exhaustive_search(distances, num_of_cities)
-    print("Output",[cities[x] for x in path], cost)
+    time_taken = time.time()-start_time
+    print(" %s seconds " % time_taken)
+
+    print(" --- Output --- ")
+    print([cities[x] for x in path], cost)
