@@ -20,7 +20,7 @@ def exhaustive_search(distances, nCities):
 if __name__ == "__main__":
 
     #Parameters
-    num_of_cities = 10
+    num_of_cities = 24
 
     cities, distances = read_input("european_cities.csv", num_of_cities)
 
