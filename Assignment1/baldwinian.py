@@ -14,6 +14,9 @@ def baldwinian(distances, generation, ncities, population_size, nParents,
 
     population = [(tour_distance(p, distances),p) for p in init_set]
 
+#   For plotting
+    best_fit = []
+
     for x in range(generation):
 #        print("============Generation {0} ===========".format(x))
 
@@ -32,10 +35,10 @@ def baldwinian(distances, generation, ncities, population_size, nParents,
  #           print("mutated",offspring)
 
         population = replacement_strategy(offspring, population, population_size, distances)
-#        print(population)
+        best_fit.append(population[0][0])
 
     cost,path = population[0]
-    return path + path[:1], tour_distance(path, distances)
+    return path + path[:1], tour_distance(path, distances), best_fit
 
 def baldwinian_learning(pop, n, distances):
     for i, (a,b) in enumerate(pop):
@@ -45,29 +48,4 @@ def baldwinian_learning(pop, n, distances):
     return pop
 
 
-if __name__ == "__main__":
 
-    #Parameters
-    population_size = 200
-    no_of_generation = 10
-    no_of_parents = 10
-    no_of_cities = 24
-    mutation_rate = 50 #mutation rate in percentage
-    cross_rate = 100 # recombination rate in percentage
-    learning_iteration = 10
-
-    cities, distances = read_input("european_cities.csv", no_of_cities)
-
-    file = open("out.txt", "w")
-    for x in range(20):
-        start_time = time.time()
-        path, cost = baldwinian(distances, no_of_generation, no_of_cities,
-                                population_size, no_of_parents, mutation_rate,
-                                cross_rate, learning_iteration)
-        time_taken = time.time() - start_time
-        file.write("{0};{1};{2};{3};\n".format(x, [cities[x] for x in path], cost, time_taken ))
-        print("%s Seconds " % time_taken)
-        print("--Output--")
-        print([cities[x] for x in path], cost)
-
-    file.close()
