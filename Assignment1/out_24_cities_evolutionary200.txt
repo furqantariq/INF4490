@@ -1,0 +1,1 @@
+0;['Bucharest', 'Budapest', 'Berlin', 'Copenhagen', 'London', 'Dublin', 'Madrid', 'Barcelona', 'Rome', 'Kiev', 'Moscow', 'Saint Petersburg', 'Stockholm', 'Warsaw', 'Vienna', 'Prague', 'Munich', 'Milan', 'Paris', 'Brussels', 'Hamburg', 'Belgrade', 'Sofia', 'Istanbul', 'Bucharest'];15828.46;0.2563309669494629;

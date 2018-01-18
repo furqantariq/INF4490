@@ -9,8 +9,8 @@ from util import *
 if __name__ == "__main__":
 
     #Parameters
-    population_size = 200
-    no_of_generation = 10
+    population_size = 50
+    no_of_generation = 100
     no_of_parents = 10
     no_of_cities = 10
     mutation_rate = 50 #mutation rate in percentage

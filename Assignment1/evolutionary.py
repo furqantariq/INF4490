@@ -19,7 +19,7 @@ def evolutionary(distances, generation, ncities, population_size, nParents,
 
 #   For plotting
     best_fit = []
-
+    
     for x in range(generation):
 #        print("============Generation {0} ===========".format(x))
         parents = select_parents(population, nParents)
@@ -95,11 +95,11 @@ if __name__ == "__main__":
     mutation_rate = 50 #mutation rate in percentage
     cross_rate = 100 # recombination rate in percentage
 
-    no_of_runs = 20
+    no_of_runs = 1
 
     cities, distances = read_input("european_cities.csv", no_of_cities)
 
-    for pop_size in [50, 200, 400]:
+    for pop_size in [200]:
         
         population_size = pop_size
         file = open("out_{0}_cities_evolutionary{1}.txt".format(no_of_cities,pop_size), "w")

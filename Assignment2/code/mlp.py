@@ -16,7 +16,8 @@ class mlp:
     # You should add your own methods as well!
 
     def earlystopping(self, inputs, targets, valid, validtargets):
-           
+        
+        #Adding bias node
         valid = np.concatenate((valid,-np.ones((np.shape(valid)[0],1))),axis=1)
         
         old_error =100000.0
@@ -31,6 +32,7 @@ class mlp:
               
     def train(self, inputs, targets, iterations=100):
         
+        #Adding bias node
         inputs = np.concatenate((inputs, -np.ones((np.shape(inputs)[0],1))),axis=1)
 
         for i in range(iterations):
@@ -46,8 +48,6 @@ class mlp:
 
             self.weight1 -= u1
             self.weight2 -= u2
-            
-
             
 
     def forward(self, inputs):
@@ -92,7 +92,9 @@ class mlp:
         
         tsize = np.shape(inputs)[0]
         k_size = int(tsize/k)
-              
+        
+        cp_array = np.array([])
+
         for i in range(k):        
             a = i*k_size
             b = (i+1)*k_size
@@ -107,9 +109,11 @@ class mlp:
             
             conf_mat = self.confusion(test_data, test_targets)
             cp = (np.trace(conf_mat)/np.sum(conf_mat)) * 100
+            cp_array = np.append(cp_array, cp)
             print("Fold {0} Percentage Correct: {1}".format(i,cp))
 
-  
+        print("\nMean: ", np.mean(cp_array))
+        print("Standard Dev.", np.std(cp_array))
         
         
         

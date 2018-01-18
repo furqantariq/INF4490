@@ -1,0 +1,1 @@
+0;['Hamburg', 'Brussels', 'London', 'Dublin', 'Madrid', 'Barcelona', 'Milan', 'Bucharest', 'Istanbul', 'Moscow', 'Kiev', 'Belgrade', 'Budapest', 'Berlin', 'Copenhagen', 'Hamburg'];10861.95;0.19414210319519043;
